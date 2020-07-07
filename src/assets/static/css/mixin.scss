@@ -1,0 +1,51 @@
+%flex {
+  display: flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: inline-flex;
+  display: -ms-inline-flexbox;
+}
+
+// 上下左右居中对齐
+@mixin flex-center {
+  @extend %flex;
+  justify-content: center;
+  align-items: center;
+}
+// 水平居中
+@mixin flex-center-h {
+  @extend %flex;
+  justify-content: center;
+}
+// 水平隔一定的间隔
+@mixin flex-row {
+  @extend %flex;
+  justify-content: space-around;
+}
+
+@mixin translate($pxX: 0, $pxY: 0, $pxZ: 0) {
+  -webkit-transform: translate3d($pxX, $pxY, $pxZ);
+  -moz-transform: translate3d($pxX, $pxY, $pxZ);
+  -ms-transform: translate3d($pxX, $pxY, $pxZ);
+  -o-transform: translate3d($pxX, $pxY, $pxZ);
+  transform: translate3d($pxX, $pxY, $pxZ);
+}
+
+// 使用定位居中
+@mixin position-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  @include translate(-50%, -50%);
+}
+
+// 阴影
+@mixin box-shadow($hoff, $voff, $blur, $spread, $color, $inset: null) {
+  -webkit-box-shadow: $hoff $voff $blur $spread $color $inset;
+  -moz-box-shadow: $hoff $voff $blur $spread $color $inset;
+  box-shadow: $hoff $voff $blur $spread $color $inset;
+}
+

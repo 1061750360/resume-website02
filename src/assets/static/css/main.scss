@@ -1,0 +1,11 @@
+// 导入通用的mixin
+@import 'mixin';
+// 导入重置每个浏览器的默认样式表
+@import 'reset';
+// 导入动画文件
+@import 'transiton';
+// 导入主题和字体样式
+@import 'theme-font';
+// 导入常用scss函数
+@import 'utils';
+

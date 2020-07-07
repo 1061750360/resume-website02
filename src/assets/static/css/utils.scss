@@ -1,0 +1,6 @@
+$ratio: 1920 / 56.47; // 缩放比   34
+
+// 返回对应屏幕下的rem值
+@function px2rem($px){
+  @return $px / $ratio + rem
+}

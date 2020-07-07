@@ -1,0 +1,84 @@
+@mixin transition($time: .2s) {
+  -webkit-transition: all $time ease;
+  -moz-transition: all $time ease;
+  -ms-transition: all $time ease;
+  -o-transition: all $time ease;
+  transition: all $time ease;
+}
+
+// 动画
+@mixin animation($animationName, $time, $times) {
+  -webkit-animation: $animationName $time linear $times;
+  -o-animation: $animationName $time linear $times;
+  animation: $animationName $time linear $times;
+}
+
+// 控制元素左右移动(如：云)
+@mixin move($animationName, $distance) {
+  @include animation($animationName, 20s, infinite);
+  @keyframes #{$animationName} {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+    25% {
+      transform: translate3d($distance, 0, 0);
+    }
+    50% {
+      transform: translate3d(0, 0, 0);
+    }
+    75% {
+      transform: translate3d(-$distance, 0, 0);
+    }
+    100% {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+}
+
+// 缩放效果
+@mixin scale($number) {
+  -webkit-transform: scale($number);
+  -moz-transform: scale($number);
+  -ms-transform: scale($number);
+  -o-transform: scale($number);
+  transform: scale($number);
+}
+
+// 旋转
+@mixin skew($x, $y) {
+  transform: skew($x, $y);
+  -moz-transform-origin: skew($x, $y);
+  -ms-transform: skew($x, $y);
+  -o-transform: skew($x, $y);
+}
+
+/*tip提示动画*/
+.tipShow-enter-active,
+.tipShow-leave-active {
+  @include transition(0.5s);
+}
+.tipShow-enter,
+.tipShow-leave-to {
+  opacity: 0;
+}
+
+
+.fade-enter-active,
+.fade-leave-active {
+  @include transition(1s);
+}
+.fade-enter,
+.fade-leave-to {
+  @include translate(-105%, 0, 0);
+}
+
+.left-fade-enter-active,
+.left-fade-leave-active {
+  @include transition(.5s);
+}
+.left-fade-enter,
+.left-fade-leave-to {
+  @include translate(-105%, 0, 0);
+}
+
+

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title>朽木自雕的简历</title>
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry but www.xmzd.wang doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <title style="width: 0;height: 0;opacity: 0">朽木自雕的简历</title>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+    <script>
+      // 获取当前设备的宽度，设置rem的根字体大小
+      let width = window.innerWidth
+      width = width <= 1200 ? 1200 : width
+      const htmlObj = document.getElementsByTagName('html')[0]
+      const bodyObj = document.getElementsByTagName('body')[0]
+      htmlObj.style.fontSize = bodyObj.style.fontSize = width / 56.47 + 'px'
+
+      // 对resize事件进行浏览器兼容处理
+      if(document.createEvent) {
+        var event = document.createEvent("HTMLEvents");
+        event.initEvent("resize", true, true);
+        window.dispatchEvent(event);
+      } else if(document.createEventObject) {
+        window.fireEvent("onresize");
+      }
+
+      // 监听页面resize事件，重新设置rem的根字体大小
+      window.onresize = function() {
+        let width = window.innerWidth
+        width = width <= 1200 ? 1200 : width
+        htmlObj.style.fontSize = bodyObj.style.fontSize = width / 56.47 + 'px'
+      };
+    </script>
+  </body>
+</html>
